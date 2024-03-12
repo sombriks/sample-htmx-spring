@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TODO list with htmx and spring/thymeleaf</title>
+    <script src="webjars/htmx.org/2.0.0-alpha2/dist/htmx.min.js"></script>
+    <script>
+      htmx.logAll();
+    </script>
+</head>
+<body>
+    <div th:replace="/todos/form.html"></div>
+    <div th:replace="/todos/list.html"></div>
+</body>
+</html>
