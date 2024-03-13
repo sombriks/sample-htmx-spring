@@ -37,7 +37,6 @@ Or:
 java -jar target/sample-htmx-spring-0.0.1-SNAPSHOT.jar
 ```
 
-
 ## Noteworthy
 
 - Used [functional endpoints][webflux] instead of traditional [web mvc][webmvc]
@@ -51,6 +50,8 @@ java -jar target/sample-htmx-spring-0.0.1-SNAPSHOT.jar
 - Liquibase defaults in spring configuration renders a broken project because it
   does [assume a root changelog][changelog-master] but it does not assume the
   [changelog format][changelog-format].
+- [Thymeleaf is a little picky][thymeleaf-include] regarding the templates
+  "includes".
 
 [repo]: https://github.com/sombriks/sample-htmx-spring
 [htmx]: https://htmx.org/
@@ -64,3 +65,4 @@ java -jar target/sample-htmx-spring-0.0.1-SNAPSHOT.jar
 [repository]: https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html#jpa.query-methods.query-creation
 [changelog-master]: ./src/main/resources/db/changelog/db.changelog-master.yaml
 [changelog-format]: https://docs.liquibase.com/concepts/changelogs/home.html
+[thymeleaf-include]: https://stackoverflow.com/a/77436286/420096
