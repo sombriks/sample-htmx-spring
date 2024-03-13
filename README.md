@@ -11,6 +11,7 @@ See [HELP.md][help] for further details.
 - maven 3.9
 - java 17
 - htmx 2.0 (webjar)
+- spring 3.2 with webflux
 
 ## How to build
 
@@ -19,7 +20,6 @@ See [HELP.md][help] for further details.
 ```
 
 ## How to test
-
 
 ```bash
 ./mvnw test
@@ -31,9 +31,36 @@ See [HELP.md][help] for further details.
 ./mvnw spring-boot:run
 ```
 
+Or:
+
+```bash
+java -jar target/sample-htmx-spring-0.0.1-SNAPSHOT.jar
+```
+
+
 ## Noteworthy
+
+- Used [functional endpoints][webflux] instead of traditional [web mvc][webmvc]
+  to make this sample more similar to the [other][javalin] [ones][koa].
+- `RouterFunctions` demands specific routes to be declared first, this is why
+  the configuration function looks slightly different than its kotlin and node
+  counterparts.
+- Spring webflux is built on top of [project reactor][reactive] and demands a
+  functional thinking way, therefore the difference in controller code.
+- [Spring repositories][repository] are a formidable abstraction.
+- Liquibase defaults in spring configuration renders a broken project because it
+  does [assume a root changelog][changelog-master] but it does not assume the
+  [changelog format][changelog-format].
 
 [repo]: https://github.com/sombriks/sample-htmx-spring
 [htmx]: https://htmx.org/
 [initializr]: https://start.spring.io/#!type=maven-project&language=java&platformVersion=3.2.3&packaging=jar&jvmVersion=17&groupId=sample.htmx&artifactId=sample-htmx-spring&name=sample-htmx-spring&description=Demo%20project%20for%20HTMX%20with%20Spring%20Boot%20%2F%20Thymeleaf&packageName=sample.htmx.spring&dependencies=webflux,thymeleaf,data-jpa,h2,liquibase
 [help]: ./HELP.md
+[webflux]: https://docs.spring.io/spring-framework/reference/web/webflux-functional.html
+[webmvc]: https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#web
+[javalin]: https://github.com/sombriks/sample-htmx-javalin
+[koa]: https://github.com/sombriks/sample-htmx-koa
+[reactive]: https://projectreactor.io/docs/core/release/reference/#intro-reactive
+[repository]: https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html#jpa.query-methods.query-creation
+[changelog-master]: ./src/main/resources/db/changelog/db.changelog-master.yaml
+[changelog-format]: https://docs.liquibase.com/concepts/changelogs/home.html

@@ -54,6 +54,12 @@
 			<artifactId>reactor-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest</artifactId>
+			<scope>test</scope>
+			<version>2.2</version>
+		</dependency>
 	</dependencies>
 
 	<build>

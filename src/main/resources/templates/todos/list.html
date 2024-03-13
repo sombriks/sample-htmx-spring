@@ -1,1 +1,24 @@
-a
+<table id="table">
+    <tr>
+        <th>#</th>
+        <th>Description</th>
+        <th>Done?</th>
+        <th></th>
+    </tr>
+    <tr th:each="todo: ${todos}">
+        <td><span th:text="${todo.id}" th:remove="tag"></span> <input th:class="'edit'+${todo.id}" type="hidden" th:value="${todo.id}"/></td>
+        <td><input th:class="'edit'+${todo.id}" type="text" name="description" th:value="${todo.description}"/></td>
+        <td>
+            <!-- TODO try to use checkboxes again -->
+            <select th:class="'edit'+${todo.id}" name="done" th:field="*{todo.done}">
+                <option value="true">true</option>
+                <option value="false">false</option>
+            </select>
+        </td>
+        <td>
+            <button th:hx-put="'/todos/'+${todo.id}" hx-swap="outerHTML"
+                    hx-target="#table" th:hx-include="'.edit'+${todo.id}">Save
+            </button>
+        </td>
+    </tr>
+</table>
