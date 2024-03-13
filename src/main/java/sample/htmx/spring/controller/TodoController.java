@@ -4,18 +4,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.reactive.function.BodyExtractors;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
-import org.thymeleaf.expression.Maps;
 import reactor.core.publisher.Mono;
 import sample.htmx.spring.model.TodoItem;
 import sample.htmx.spring.service.TodoService;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @Component
@@ -51,19 +48,20 @@ public class TodoController {
 
     public Mono<ServerResponse> find(ServerRequest request) {
         LOG.debug("find");
-        Optional<TodoItem> todo = service.find(Long.parseLong(request.pathVariable("id")));
+        Optional<TodoItem> todo = service.find(Long.valueOf(request.pathVariable("id")));
         if (todo.isPresent()) {
             var model = new HashMap<String, TodoItem>();
             model.put("todo", todo.get());
             return ServerResponse.ok().contentType(MediaType.TEXT_HTML).render("todos/detail", model);
-        } else return ServerResponse.notFound().build();
+        } else
+            return ServerResponse.notFound().build();
     }
 
     public Mono<ServerResponse> update(ServerRequest request) {
         LOG.debug("update");
         return request.body(BodyExtractors.toFormData()).flatMap(form -> {
             TodoItem item = TodoItem.fromRequest(form);
-            Long id = Long.parseLong(request.pathVariable("id"));
+            Long id = Long.valueOf(request.pathVariable("id"));
             item.setId(id);
             service.update(item);
             LOG.debug("{}", item);
@@ -73,7 +71,7 @@ public class TodoController {
 
     public Mono<ServerResponse> delete(ServerRequest request) {
         LOG.debug("delete");
-        Long id = Long.parseLong(request.pathVariable("id"));
+        Long id = Long.valueOf(request.pathVariable("id"));
         service.delete(id);
         return returnTodos(request, "todos/list");
     }
