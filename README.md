@@ -53,6 +53,53 @@ java -jar target/sample-htmx-spring-0.0.1-SNAPSHOT.jar
 - [Thymeleaf is a little picky][thymeleaf-include] regarding the templates
   "includes".
 
+## Benchmark results
+
+The following results for the same test applied
+[against the other versions][k6-benchmark].
+
+```bash
+ 
+
+          /\      |‾‾| /‾‾/   /‾‾/   
+     /\  /  \     |  |/  /   /  /    
+    /  \/    \    |     (   /   ‾‾\  
+   /          \   |  |\  \ |  (‾)  | 
+  / __________ \  |__| \__\ \_____/ .io
+
+     execution: local
+        script: benchmark-javalin.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 10 max VUs, 1m0s max duration (incl. graceful stop):
+              * default: 10 looping VUs for 30s (gracefulStop: 30s)
+
+
+     ✓ 200 ok
+
+     checks.........................: 100.00% ✓ 153779    ✗ 0     
+     data_received..................: 121 MB  4.0 MB/s
+     data_sent......................: 12 MB   410 kB/s
+     http_req_blocked...............: avg=3.01µs  min=992ns    med=2.66µs   max=693.98µs p(90)=3.89µs  p(95)=4.87µs 
+     http_req_connecting............: avg=15ns    min=0s       med=0s       max=308.55µs p(90)=0s      p(95)=0s     
+     http_req_duration..............: avg=1.84ms  min=377.23µs med=934.47µs max=1.15s    p(90)=2.44ms  p(95)=6.02ms 
+       { expected_response:true }...: avg=1.84ms  min=377.23µs med=934.47µs max=1.15s    p(90)=2.44ms  p(95)=6.02ms 
+     http_req_failed................: 0.00%   ✓ 0         ✗ 153779
+     http_req_receiving.............: avg=40.23µs min=12.31µs  med=34.68µs  max=4.91ms   p(90)=53.7µs  p(95)=68.91µs
+     http_req_sending...............: avg=12.65µs min=4.27µs   med=11.03µs  max=5.88ms   p(90)=17.57µs p(95)=21.96µs
+     http_req_tls_handshaking.......: avg=0s      min=0s       med=0s       max=0s       p(90)=0s      p(95)=0s     
+     http_req_waiting...............: avg=1.78ms  min=348.98µs med=887.93µs max=1.15s    p(90)=2.36ms  p(95)=5.92ms 
+     http_reqs......................: 153779  5125.8185/s
+     iteration_duration.............: avg=1.93ms  min=446.6µs  med=1.02ms   max=1.15s    p(90)=2.57ms  p(95)=6.23ms 
+     iterations.....................: 153779  5125.8185/s
+     vus............................: 10      min=10      max=10  
+     vus_max........................: 10      min=10      max=10  
+
+
+running (0m30.0s), 00/10 VUs, 153779 complete and 0 interrupted iterations
+default ✓ [======================================] 10 VUs  30s
+```
+
 [repo]: https://github.com/sombriks/sample-htmx-spring
 [htmx]: https://htmx.org/
 [initializr]: https://start.spring.io/#!type=maven-project&language=java&platformVersion=3.2.3&packaging=jar&jvmVersion=17&groupId=sample.htmx&artifactId=sample-htmx-spring&name=sample-htmx-spring&description=Demo%20project%20for%20HTMX%20with%20Spring%20Boot%20%2F%20Thymeleaf&packageName=sample.htmx.spring&dependencies=webflux,thymeleaf,data-jpa,h2,liquibase
@@ -66,3 +113,4 @@ java -jar target/sample-htmx-spring-0.0.1-SNAPSHOT.jar
 [changelog-master]: ./src/main/resources/db/changelog/db.changelog-master.yaml
 [changelog-format]: https://docs.liquibase.com/concepts/changelogs/home.html
 [thymeleaf-include]: https://stackoverflow.com/a/77436286/420096
+[k6-benchmark]: https://github.com/sombriks/node-vs-kotlin-k6-benchmark
