@@ -44,7 +44,7 @@ java -jar target/sample-htmx-spring-0.0.1-SNAPSHOT.jar
 - Used [functional endpoints][webflux] instead of traditional [web mvc][webmvc]
   to make this sample more similar to the [other][javalin] [ones][koa].
 - `RouterFunctions` demands specific routes to be declared first, this is why
-  the configuration function looks slightly different than its kotlin and node
+  the configuration function looks slightly different from its kotlin and node
   counterparts.
 - Spring webflux is built on top of [project reactor][reactive] and demands a
   functional thinking way, therefore the difference in controller code.
