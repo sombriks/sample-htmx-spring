@@ -6,7 +6,7 @@
         <th></th>
     </tr>
     <tr th:each="todo: ${todos}">
-        <td><span th:text="${todo.id}" th:remove="tag"></span> <input th:class="'edit'+${todo.id}" type="hidden" th:value="${todo.id}"/></td>
+        <td><span th:text="${todo.id}" th:remove="tag"></span> <input th:class="'edit'+${todo.id}" type="hidden" name="id" th:value="${todo.id}"/></td>
         <td><input th:class="'edit'+${todo.id}" type="text" name="description" th:value="${todo.description}"/></td>
         <td>
             <!-- TODO try to use checkboxes again -->

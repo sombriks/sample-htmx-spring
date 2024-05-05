@@ -26,8 +26,8 @@ public class SampleHtmxSpringBuild extends WebProject {
                 .include(dependency("org.springframework.boot:spring-boot-starter-data-jpa:3.2.5"))
                 .include(dependency("org.springframework.boot:spring-boot-starter-thymeleaf:3.2.5"))
                 .include(dependency("org.springframework.boot:spring-boot-starter-webflux:3.2.5"))
-                .include(dependency("org.liquibase:liquibase-core:4.24.0"))
-                .include(dependency("org.webjars.npm:htmx.org:2.0.0-alpha2:3.2.5"));
+                .include(dependency("org.webjars.npm:htmx.org:1.9.12"))
+                .include(dependency("org.liquibase:liquibase-core:4.24.0"));
 
 //        scope(provided);
 

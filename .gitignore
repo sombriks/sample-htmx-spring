@@ -35,6 +35,8 @@ lib/test/
 *.iws
 *.iml
 *.ipr
+!.idea/bld.iml
+!.idea/libraries/bld.xml
 
 ### NetBeans ###
 /nbproject/private/
