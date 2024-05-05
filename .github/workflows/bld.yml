@@ -17,4 +17,7 @@ jobs:
         with:
           path: lib
           key: bld-${{ hashFiles('src/bld/java/**') }}
-      - run: ./bld clean download compile test
+        id: cache
+      - if: steps.cache.outputs.cache-hit != 'true'
+        run: ./bld clean download
+      - run: ./bld compile test

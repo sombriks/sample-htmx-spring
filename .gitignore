@@ -6,6 +6,20 @@ target/
 
 ### Gradle ###
 .gradle
+build
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### bld ###
+build
+lib/bld/**
+!lib/bld/bld-wrapper.jar
+!lib/bld/bld-wrapper.properties
+lib/compile/
+lib/provided/
+lib/runtime/
+lib/standalone/
+lib/test/
 
 ### STS ###
 .apt_generated
@@ -38,3 +52,4 @@ build/
 ### H2 database ###
 *.mv.db
 *.trace.db
+
