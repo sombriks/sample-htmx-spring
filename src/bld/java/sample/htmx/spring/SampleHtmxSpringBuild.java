@@ -32,6 +32,7 @@ public class SampleHtmxSpringBuild extends WebProject {
 //        scope(provided);
 
         scope(test)
+                .include(dependency("org.junit.platform:junit-platform-console-standalone:1.10.2"))
                 .include(dependency("org.springframework.boot:spring-boot-starter-test:3.2.5"))
                 .include(dependency("io.projectreactor:reactor-test:3.6.5"))
                 .include(dependency("org.hamcrest:hamcrest:2.2"));
