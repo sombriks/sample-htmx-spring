@@ -38,4 +38,15 @@ public class SampleHtmxSpringBuild extends WebProject {
                 .include(dependency("org.springframework.boot:spring-boot-loader:3.2.5"))
                 .include(dependency("com.h2database:h2:2.2.224"));
     }
+
+    @BuildCommand(summary = "Creates an executable JAR for the project")
+    public void bootjar() throws Exception {
+        new BootJarOperation()
+                .fromProject(this)
+                .execute();
+    }
+
+    public static void main(String[] args) {
+        new SampleHtmxSpringBuild().start(args);
+    }
 }
