@@ -2,6 +2,12 @@ package sample.htmx.spring;
 
 import rife.bld.WebProject;
 
+import java.util.List;
+
+import static rife.bld.dependencies.Repository.*;
+import static rife.bld.dependencies.Scope.*;
+import static rife.bld.operations.TemplateType.*;
+
 public class SampleHtmxSpringBuild extends WebProject {
 
     public SampleHtmxSpringBuild() {
