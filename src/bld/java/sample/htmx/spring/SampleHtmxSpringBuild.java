@@ -1,6 +1,7 @@
 package sample.htmx.spring;
 
 import rife.bld.WebProject;
+import rife.bld.extension.BootJarOperation;
 
 import java.util.List;
 
