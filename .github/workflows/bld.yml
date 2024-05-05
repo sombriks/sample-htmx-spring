@@ -13,4 +13,8 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+      - uses: actions/cache@v4
+        with:
+          path: lib
+          key: bld-${{ hashFiles('src/bld/java/**') }}
       - run: ./bld clean download compile test
