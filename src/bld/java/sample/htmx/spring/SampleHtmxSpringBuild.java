@@ -23,22 +23,22 @@ public class SampleHtmxSpringBuild extends WebProject {
         repositories = List.of(MAVEN_CENTRAL, RIFE2_RELEASES);
 
         scope(compile)
-                .include(dependency("org.springframework.boot:spring-boot-starter-data-jpa:3.2.5"))
-                .include(dependency("org.springframework.boot:spring-boot-starter-thymeleaf:3.2.5"))
-                .include(dependency("org.springframework.boot:spring-boot-starter-webflux:3.2.5"))
+                .include(dependency("org.springframework.boot:spring-boot-starter-data-jpa:3.3.1"))
+                .include(dependency("org.springframework.boot:spring-boot-starter-thymeleaf:3.3.1"))
+                .include(dependency("org.springframework.boot:spring-boot-starter-webflux:3.3.1"))
                 .include(dependency("org.webjars.npm:htmx.org:1.9.12"))
-                .include(dependency("org.liquibase:liquibase-core:4.24.0"));
+                .include(dependency("org.liquibase:liquibase-core:4.28.0"));
 
-//        scope(provided);
+        // scope(provided);
 
         scope(test)
                 .include(dependency("org.junit.platform:junit-platform-console-standalone:1.10.2"))
-                .include(dependency("org.springframework.boot:spring-boot-starter-test:3.2.5"))
-                .include(dependency("io.projectreactor:reactor-test:3.6.5"))
+                .include(dependency("org.springframework.boot:spring-boot-starter-test:3.3.1"))
+                .include(dependency("io.projectreactor:reactor-test:3.6.7"))
                 .include(dependency("org.hamcrest:hamcrest:2.2"));
 
         scope(standalone)
-                .include(dependency("org.springframework.boot:spring-boot-loader:3.2.5"))
+                .include(dependency("org.springframework.boot:spring-boot-loader:3.3.1"))
                 .include(dependency("com.h2database:h2:2.2.224"));
     }
 

@@ -58,6 +58,9 @@ java -jar target/sample-htmx-spring-0.0.1-SNAPSHOT.jar
   [changelog format][changelog-format].
 - [Thymeleaf is a little picky][thymeleaf-include] regarding the templates
   "includes".
+- Added additional java build tooling so we can compare maven, gradle and
+  [bld][bld]. It's a nice comparison and all three tools can produce a valid
+  spring boot jar.
 
 ## Benchmark results
 
@@ -120,3 +123,4 @@ default ✓ [======================================] 10 VUs  30s
 [changelog-format]: https://docs.liquibase.com/concepts/changelogs/home.html
 [thymeleaf-include]: https://stackoverflow.com/a/77436286/420096
 [k6-benchmark]: https://github.com/sombriks/node-vs-kotlin-k6-benchmark
+[bld]: https://rife2.com/bld
