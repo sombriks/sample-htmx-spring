@@ -58,7 +58,7 @@ java -jar target/sample-htmx-spring-0.0.1-SNAPSHOT.jar
   [changelog format][changelog-format].
 - [Thymeleaf is a little picky][thymeleaf-include] regarding the templates
   "includes".
-- Added additional java build tooling so we can compare maven, gradle and
+- Added additional java build tooling, so we can compare maven, gradle and
   [bld][bld]. It's a nice comparison and all three tools can produce a valid
   spring boot jar.
 
