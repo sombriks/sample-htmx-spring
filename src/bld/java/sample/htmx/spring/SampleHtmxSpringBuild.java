@@ -18,7 +18,7 @@ public class SampleHtmxSpringBuild extends WebProject {
         name = "SampleHtmxSpring";
         mainClass = "sample.htmx.spring.SampleHtmxSpringApplication";
         version = version(0, 0, 1, "SNAPSHOT");
-
+        autoDownloadPurge = true;
         downloadSources = true;
         repositories = List.of(MAVEN_CENTRAL, RIFE2_RELEASES);
 
